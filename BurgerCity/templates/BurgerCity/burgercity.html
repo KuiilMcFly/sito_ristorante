@@ -1,0 +1,48 @@
+{% extends 'BurgerCity/common.html' %} {% block content %}
+<div class="container my-5 text-center" style="max-width: 400px">
+  <h1>Panini per Programmatori!</h1>
+  <p class="lead">
+    Concediti ora una favolosa pausa ricca di sapore e di carboidrati. E'
+    scientificamente provato: i nostri panini ti aiutano a scrivere un codice
+    più performante
+  </p>
+  <button type="button" class="btn btn-primary">Ordina Subito!</button>
+  <a href="{% url 'contattaci' %}" type="button" class="btn btn-secondary"
+    >Contattaci</a
+  >
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for Burger in Burgers %}
+    <div class="col-sm">
+      <div
+        class="card"
+        style="width: 18rem; height: 450px; margin-bottom: 40px"
+      >
+        <img
+          src="{{Burger.immagine.url}}"
+          class="card-img-top"
+          alt="..."
+          style="height: 40%"
+        />
+        <div
+          class="card-body"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          "
+        >
+          <h5 class="card-title">{{Burger.nome}}</h5>
+          <p class="card-text">€{{Burger.prezzo}}</p>
+          <p class="card-text">{{Burger.descrizione}}</p>
+          <a href="#" class="btn btn-primary">Acquista</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
