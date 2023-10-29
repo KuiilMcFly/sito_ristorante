@@ -1,27 +1,33 @@
 {% extends 'BurgerCity/common.html' %} {% block content %}
-<div class="container">
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label"
-      >Email address</label
-    >
-    <input
-      type="email"
-      class="form-control"
-      id="exampleFormControlInput1"
-      placeholder="name@example.com"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label"
-      >Chiedi ciò che vuoi!</label
-    >
-    <textarea
-      class="form-control"
-      id="exampleFormControlTextarea1"
-      rows="3"
-    ></textarea>
-  </div>
-  <div></div>
+<div class="container" style="margin-top: 40px">
+  <h1>Contattaci</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Email address</label
+      >
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Chiedi ciò che vuoi!</label
+      >
+      <textarea
+        name="userQuestion"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </form>
 </div>
 
 {% endblock %}
