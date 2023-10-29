@@ -4,6 +4,14 @@
   <form method="post">
     {% csrf_token %}
     <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Nome</label>
+      <input
+        type="name"
+        name="username"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Nome"
+      />
       <label for="exampleFormControlInput1" class="form-label"
         >Email address</label
       >
@@ -28,6 +36,13 @@
     </div>
     <input class="btn btn-primary" type="submit" value="Submit" />
   </form>
+  <div>
+    <h2>Commenti</h2>
+    <div style="border: solid 1px gray; border-radius: 8px">
+      <h5>Nome Utente</h5>
+      <p>testo</p>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
