@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Burger
 from .models import contactForm
 from .forms import ContactFormForm
@@ -16,6 +16,9 @@ def contattaci(request):
         form = ContactFormForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('contattaci')
     else:
         form = ContactFormForm()
-    return render(request, 'BurgerCity/contattaci.html', {'form': form})
+
+    data = contactForm.objects.all()
+    return render(request, 'BurgerCity/contattaci.html', {'form': form, 'data': data})

@@ -36,12 +36,15 @@
     </div>
     <input class="btn btn-primary" type="submit" value="Submit" />
   </form>
-  <div>
+  <div style="display: flex; flex-direction: column; gap: 15px">
     <h2>Commenti</h2>
+    {% for item in data %}
     <div style="border: solid 1px gray; border-radius: 8px">
-      <h5>Nome Utente</h5>
-      <p>testo</p>
+      <h5>{{item.username}}</h5>
+      <h7>{{item.email}}</h7>
+      <p>{{item.userQuestion}}</p>
     </div>
+    {% endfor %}
   </div>
 </div>
 
